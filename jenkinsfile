@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'YOUR_REPO_URL'
+                git branch: 'main', url: 'https://github.com/Poojadb28/veeco_sourceoptima'
             }
         }
 
