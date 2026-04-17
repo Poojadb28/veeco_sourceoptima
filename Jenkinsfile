@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        HEADLESS = 'false'
+    }
+
     stages {
 
         stage('Checkout Code') {
@@ -11,24 +15,31 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat '''
-                python --version
-                python -m pip install --upgrade pip
-                python -m pip install -r requirements.txt
-                '''
+                bat """
+                "C:\\Users\\Dell\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version
+                "C:\\Users\\Dell\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install --upgrade pip
+                "C:\\Users\\Dell\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt
+                """
+            }
+        }
+
+        stage('Prepare Folders') {
+            steps {
+                bat "if not exist reports mkdir reports"
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest'
+                // bat "\"C:\\Users\\Dell\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest tests/test_e2e_flow.py -v --html=reports/report.html"
+                bat "\"C:\\Users\\Dell\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest -v --html=reports/report.html"
             }
         }
     }
 
     post {
         always {
-            publishHTML(target: [
+            publishHTML([
                 reportDir: 'reports',
                 reportFiles: 'report.html',
                 reportName: 'Test Report',
@@ -39,3 +50,4 @@ pipeline {
         }
     }
 }
+
