@@ -1,35 +1,41 @@
 pipeline {
     agent any
 
-    environment {
-        HEADLESS = "true"
-        BASE_URL = "https://testing.sourceoptima.com/"
-    }
-
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Poojadb28/veeco_sourceoptima'
+                checkout scm
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat '''
+                python --version
+                python -m pip install --upgrade pip
+                python -m pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest'
+                bat 'python -m pytest'
             }
         }
+    }
 
-        stage('Archive Reports') {
-            steps {
-                archiveArtifacts artifacts: 'reports/report.html', allowEmptyArchive: true
-            }
+    post {
+        always {
+            publishHTML(target: [
+                reportDir: 'reports',
+                reportFiles: 'report.html',
+                reportName: 'Test Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
+            ])
         }
     }
 }
