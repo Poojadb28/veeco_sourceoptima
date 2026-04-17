@@ -1,0 +1,147 @@
+{
+  "logins": {
+    "system_admin": {
+      "email": "prekshita@sourceoptima.com",
+      "password": "aspl1234"
+    },
+    "system_admin_invalid": {
+      "email": "pooja@gmail",
+      "password": "aspl@1234"
+    },
+    "admin": {
+      "email": "poojagowda@gmail.com",
+      "password": "aspl@1234"
+    },
+    "admin_invalid": {
+      "email": "poojagowda@gmail.com",
+      "password": "aspl"
+    },
+    "user": {
+      "email": "poojadb1147@aspl.ai",
+      "password": "aspl@1234"
+    },
+    "user_invalid": {
+      "email": "poojadb1147@aspl.ai",
+      "password": "aspl"
+    }
+  },
+
+  "users": {
+    "create_admin": {
+      "full_name": "Pooja Gowda",
+      "email": "poojagowda@gmail.com",
+      "password": "aspl@1234",
+      "confirm_password": "aspl@1234",
+      "role": "Admin - Organization Administrator"
+    },
+    "create_user": {
+      "full_name": "Pooja",
+      "email": "poojadb1147@aspl.ai",
+      "password": "aspl@1234",
+      "confirm_password": "aspl@1234",
+      "role": "Customer - Standard User"
+    }
+  },
+
+  "projects": {
+    "create_project": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile",
+      "file_name": "0254.zip"
+    },
+    "create_root_space": {
+      "space_name": "TestSpace1"
+    },
+    "create_sub_space": {
+      "root_space": "TestSpace1",
+      "sub_space_name": "TestSubSpace1"
+    },
+    "delete_file": {
+      "root_space": "TestSpace1",
+      "project_name": "TestFile_1",
+      "file_name": "0187.pdf"
+    },
+    "delete_project": {
+      "root_space": "TestSpace1",
+      "project_name": "TestFile_1"
+    },
+    "delete_root_space": {
+      "space_name": "TestSpace1"
+    }
+  },
+
+  "plays": {
+    "design_review": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile"
+    },
+      "cost_reduction": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile"
+    },
+    "drawing_checker_both": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile",
+      "search_text": "minor",
+      "severity": "Critical",
+      "source": "Veeco Standards"
+    },
+    "drawing_checker_general": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile",
+      "search_text": "major",
+      "severity": "Critical",
+      "source": "General Engineering"
+    },
+      "drawing_checker_v2": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile",
+      "search_text": "major",
+      "severity": "Critical",
+      "source": "General Engineering"
+    },
+      "drawing_checker_veeco": {
+      "root_space": "TestSpace_1",
+      "project_name": "TestFile",
+      "search_text": "minor",
+      "severity": "Major",
+      "source": "Veeco Standards"
+    }
+
+  },
+    "edit_space": {
+    "old_space_name": "TestSpace1",
+    "new_space_name": "TestSpace_1",
+    "color": "purple"
+  },
+    "export_classification": {
+    "root_space": "TestSpace1",
+    "project_name": "TestFile"
+  },
+    "system_admin": {
+    "credit_history_prefix": "credit_history"
+  },
+    "filter_labels": {
+    "root_space": "TestSpace1",
+    "project_name": "TestFile",
+    "labels": [
+        "All Labels",
+        "CAD Drawing",
+        "Technical Specification"
+      ]
+    },
+      "search_file": {
+      "root_space": "TestSpace1",
+      "project_name": "TestFile",
+      "file_name": "0184.pdf"
+    },
+      "select_deselect": {
+      "root_space": "TestSpace1",
+      "project_name": "TestFile"
+    },
+    "system_stats": {
+    "download_logs": {
+      "expected_file_prefix": "sourceoptima_logs"
+    }
+  }
+}
